@@ -208,20 +208,20 @@
             }
         ]
     },
-    {
-        "keys": [
-            "ctrl+u"
-        ],
-        "args": {
-            "action": "update_image_size"
-        },
-        "command": "run_emmet_action",
-        "context": [
-            {
-                "key": "emmet_action_enabled.update_image_size"
-            }
-        ]
-    },
+    // {
+    //     "keys": [
+    //         "ctrl+u"
+    //     ],
+    //     "args": {
+    //         "action": "update_image_size"
+    //     },
+    //     "command": "run_emmet_action",
+    //     "context": [
+    //         {
+    //             "key": "emmet_action_enabled.update_image_size"
+    //         }
+    //     ]
+    // },
     {
         "keys": [
             "ctrl+alt+right"
