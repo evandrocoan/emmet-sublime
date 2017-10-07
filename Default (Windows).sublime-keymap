@@ -82,20 +82,20 @@
             }
         ]
     },
-    // {
-    //     "keys": [
-    //         "alt+down"
-    //     ],
-    //     "args": {
-    //         "action": "decrement_number_by_01"
-    //     },
-    //     "command": "run_emmet_action",
-    //     "context": [
-    //         {
-    //             "key": "emmet_action_enabled.decrement_number_by_01"
-    //         }
-    //     ]
-    // },
+    {
+        "keys": [
+            "alt+down"
+        ],
+        "args": {
+            "action": "decrement_number_by_01"
+        },
+        "command": "run_emmet_action",
+        "context": [
+            {
+                "key": "emmet_action_enabled.decrement_number_by_01"
+            }
+        ]
+    },
     {
         "keys": [
             "ctrl+'"
@@ -152,20 +152,20 @@
             }
         ]
     },
-    // {
-    //     "keys": [
-    //         "shift+alt+up"
-    //     ],
-    //     "args": {
-    //         "action": "increment_number_by_10"
-    //     },
-    //     "command": "run_emmet_action",
-    //     "context": [
-    //         {
-    //             "key": "emmet_action_enabled.increment_number_by_10"
-    //         }
-    //     ]
-    // },
+    {
+        "keys": [
+            "shift+alt+up"
+        ],
+        "args": {
+            "action": "increment_number_by_10"
+        },
+        "command": "run_emmet_action",
+        "context": [
+            {
+                "key": "emmet_action_enabled.increment_number_by_10"
+            }
+        ]
+    },
     {
         "keys": [
             "shift+ctrl+r"
@@ -208,20 +208,20 @@
             }
         ]
     },
-    // {
-    //     "keys": [
-    //         "ctrl+u"
-    //     ],
-    //     "args": {
-    //         "action": "update_image_size"
-    //     },
-    //     "command": "run_emmet_action",
-    //     "context": [
-    //         {
-    //             "key": "emmet_action_enabled.update_image_size"
-    //         }
-    //     ]
-    // },
+    {
+        "keys": [
+            "ctrl+u"
+        ],
+        "args": {
+            "action": "update_image_size"
+        },
+        "command": "run_emmet_action",
+        "context": [
+            {
+                "key": "emmet_action_enabled.update_image_size"
+            }
+        ]
+    },
     {
         "keys": [
             "ctrl+alt+right"
@@ -250,20 +250,20 @@
             }
         ]
     },
-    // {
-    //     "keys": [
-    //         "shift+alt+down"
-    //     ],
-    //     "args": {
-    //         "action": "decrement_number_by_10"
-    //     },
-    //     "command": "run_emmet_action",
-    //     "context": [
-    //         {
-    //             "key": "emmet_action_enabled.decrement_number_by_10"
-    //         }
-    //     ]
-    // },
+    {
+        "keys": [
+            "shift+alt+down"
+        ],
+        "args": {
+            "action": "decrement_number_by_10"
+        },
+        "command": "run_emmet_action",
+        "context": [
+            {
+                "key": "emmet_action_enabled.decrement_number_by_10"
+            }
+        ]
+    },
     {
         "keys": [
             "shift+ctrl+g"
@@ -293,20 +293,20 @@
             }
         ]
     },
-    // {
-    //     "keys": [
-    //         "alt+up"
-    //     ],
-    //     "args": {
-    //         "action": "increment_number_by_01"
-    //     },
-    //     "command": "run_emmet_action",
-    //     "context": [
-    //         {
-    //             "key": "emmet_action_enabled.increment_number_by_01"
-    //         }
-    //     ]
-    // },
+    {
+        "keys": [
+            "alt+up"
+        ],
+        "args": {
+            "action": "increment_number_by_01"
+        },
+        "command": "run_emmet_action",
+        "context": [
+            {
+                "key": "emmet_action_enabled.increment_number_by_01"
+            }
+        ]
+    },
     {
         "keys": [
             "ctrl+shift+u"

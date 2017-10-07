@@ -325,20 +325,20 @@
             }
         ]
     },
-    // {
-    //     "keys": [
-    //         "ctrl+shift+t"
-    //     ],
-    //     "args": {
-    //         "action": "matching_pair"
-    //     },
-    //     "command": "run_emmet_action",
-    //     "context": [
-    //         {
-    //             "key": "emmet_action_enabled.matching_pair"
-    //         }
-    //     ]
-    // },
+    {
+        "keys": [
+            "ctrl+shift+t"
+        ],
+        "args": {
+            "action": "matching_pair"
+        },
+        "command": "run_emmet_action",
+        "context": [
+            {
+                "key": "emmet_action_enabled.matching_pair"
+            }
+        ]
+    },
     {
         "keys": [
             "ctrl+down"
