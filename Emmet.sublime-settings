@@ -40,7 +40,7 @@
 	// Listed action will not be triggered by default keyboard
 	// shortcut.
 	// Use "all" value to disable all shortcuts at once
-	"disabled_keymap_actions": "decrement_number_by_1, increment_number_by_1, matching_pair, decrement_number_by_10, update_image_size, increment_number_by_10, decrement_number_by_01, increment_number_by_01, remove_tag",
+	"disabled_keymap_actions": "decrement_number_by_1, increment_number_by_1, matching_pair, decrement_number_by_10, update_image_size, increment_number_by_10, decrement_number_by_01, increment_number_by_01, remove_tag, update_as_you_type",
 
 	// By default, Emmet overrides Tab key to effectively expand abbreviations.
 	// The downside of this approach is that you can’t expand regular ST2
