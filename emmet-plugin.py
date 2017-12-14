@@ -80,10 +80,10 @@ def init():
 	# unpack recently loaded binary, is exists
 	for p in pyv8_paths:
 		pyv8loader.unpack_pyv8(p)
-	
+
 	# provide some contributions to JS
 	contrib = {
-		'sublime': sublime, 
+		'sublime': sublime,
 		'sublimeReplaceSubstring': replace_substring,
 		'sublimeGetOption': settings.get
 	}
@@ -91,9 +91,9 @@ def init():
 	# create JS environment
 	delegate = SublimeLoaderDelegate()
 	globals()['ctx'] = Context(
-		files=['../editor.js'], 
-		ext_path=get_extensions_path(), 
-		contrib=contrib, 
+		files=['../editor.js'],
+		ext_path=get_extensions_path(),
+		contrib=contrib,
 		logger=delegate.log,
 		reader=js_file_reader
 	)
@@ -101,7 +101,7 @@ def init():
 	update_settings()
 
 	if not settings.get('disable_pyv8_update', False):
-		pyv8loader.load(pyv8_paths[1], delegate) 
+		pyv8loader.load(pyv8_paths[1], delegate)
 	else:
 		print('PyV8 auto-update is disabled')
 
@@ -196,7 +196,7 @@ def replace_substring(start, end, value, no_indent=False):
 	view = active_view()
 
 	view.sel().clear()
-	view.sel().add(sublime.Region(start, end or start)) 
+	view.sel().add(sublime.Region(start, end or start))
 
 	if not is_python3:
 		value = value.decode('utf-8')
@@ -218,11 +218,11 @@ def unindent_text(text, pad):
 	@type pad: str
 	"""
 	lines = text.splitlines()
-	
+
 	for i,line in enumerate(lines):
 		if line.startswith(pad):
 			lines[i] = line[len(pad):]
-	
+
 	return '\n'.join(lines)
 
 def get_line_padding(line):
@@ -381,7 +381,7 @@ def run_action(action, view=None):
 		view.erase_regions(region_key)
 		print(traceback.format_exc())
 		return
-	
+
 
 	# output all saved regions as selection
 	view.sel().clear()
@@ -434,17 +434,17 @@ class TabAndCompletionsHandler():
 	def expand_by_tab(self, view):
 		if not check_context():
 			return False;
-			
+
 		with ctx.js() as c:
 			syntax = str(c.locals.pyGetSyntax());
-		
+
 		if not should_handle_tab_key(syntax):
 			return False
 
-		# we need to filter out attribute completions if 
+		# we need to filter out attribute completions if
 		# 'disable_completions' option is not active
-		if (not settings.get('disable_completions', False) and 
-			self.correct_syntax(view, syntax) and 
+		if (not settings.get('disable_completions', False) and
+			self.correct_syntax(view, syntax) and
 			self.completion_handler(view)):
 				return None
 
@@ -461,7 +461,7 @@ class TabAndCompletionsHandler():
 		banned_regexp = settings.get('disable_tab_abbreviations_for_regexp', None)
 		if banned_regexp and re.search(banned_regexp, cur_scope):
 			return None
-		
+
 		return run_action(action_factory('expand_abbreviation'))
 		# view.run_command('run_emmet_action',
 		# 						{'action':'expand_abbreviation'})
@@ -470,7 +470,7 @@ class ExpandAbbreviationByTab(sublime_plugin.TextCommand):
 	def run(self, edit, **kw):
 		if settings.get('use_old_tab_handler', False):
 			return
-			
+
 		view = active_view()
 		h = TabAndCompletionsHandler()
 		if not h.expand_by_tab(view):
@@ -518,7 +518,7 @@ class TabExpandHandler(sublime_plugin.EventListener):
 			return completions
 
 		return []
-		
+
 
 class CommandsAsYouTypeBase(sublime_plugin.TextCommand):
 	input_message         = "Enter Input"
@@ -620,10 +620,10 @@ class WrapAsYouType(CommandsAsYouTypeBase):
 	def setup(self, edit, view, **kwargs):
 		self._prev_output = ''
 
-		with ctx.js() as c: 
+		with ctx.js() as c:
 			r = c.locals.pyResetCache()
 			if len(view.sel()) == 1:
-				# capture wrapping context (parent HTML element) 
+				# capture wrapping context (parent HTML element)
 				# if there is only one selection
 				r = c.locals.pyCaptureWrappingRange()
 				if r:
@@ -676,10 +676,10 @@ class ExpandAsYouType(WrapAsYouType):
 		view.sel().clear()
 		for s in sels:
 			view.sel().add(s)
-			
+
 		self.remember_sels(active_view())
 
-		with ctx.js() as c: 
+		with ctx.js() as c:
 			r = c.locals.pyResetCache()
 
 class UpdateAsYouType(WrapAsYouType):
@@ -692,7 +692,7 @@ class UpdateAsYouType(WrapAsYouType):
 		self._first_run = not self.default_input
 		self._prev_ranges = None
 
-		with ctx.js() as c: 
+		with ctx.js() as c:
 			r = c.locals.pyResetCache()
 
 		self.remember_sels(view)
@@ -767,7 +767,7 @@ class RenameTag(sublime_plugin.TextCommand):
 					if not sel_cleared:
 						view.sel().clear()
 						sel_cleared = True
-						
+
 					for r in ranges:
 						view.sel().add(sublime.Region(r[0], r[1]))
 					view.show(view.sel())
