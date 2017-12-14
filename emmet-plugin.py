@@ -177,7 +177,7 @@ class SublimeLoaderDelegate(LoaderDelegate):
 
 def show_pyv8_error(exit_code):
 	if 'PyV8' not in sys.modules:
-		sublime.error_message('Error while loading PyV8 binary: exit code %s \nTry to manually install PyV8 from\nhttps://github.com/emmetio/pyv8-binaries' % exit_code)
+		print('\n\nError while loading PyV8 binary: exit code %s \nTry to manually install PyV8 from\nhttps://github.com/emmetio/pyv8-binaries\n' % exit_code)
 
 def active_view():
 	return sublime.active_window().active_view()
