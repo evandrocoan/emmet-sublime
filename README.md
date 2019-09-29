@@ -13,15 +13,25 @@ Official [Emmet](http://emmet.io) plugin for Sublime Text.
 
 *Warning:* this plugin may not work at all in some OSes since it written in JavaScript and uses [PyV8](http://code.google.com/p/pyv8/) and [Google V8](https://developers.google.com/v8/) binaries to run. If you experience problems or editor crashes please [fill an issue](https://github.com/sergeche/emmet-sublime/issues).
 
-With [Package Control](http://wbond.net/sublime_packages/package_control):
+### By Package Control
 
-1. Run “Package Control: Install Package” command, find and install `Emmet` plugin.
-2. Restart ST editor (if required)
+1. Download & Install `Sublime Text 3` (https://www.sublimetext.com/3)
+1. Go to the menu `Tools -> Install Package Control`, then,
+   wait few seconds until the `Package Control` installation finishes
+1. Go to the menu `Preferences -> Package Control`
+1. Type `Package Control Add Channel` on the opened quick panel and press <kbd>Enter</kbd>
+1. Then, input the following address and press <kbd>Enter</kbd>
+   ```
+   https://raw.githubusercontent.com/evandrocoan/StudioChannel/master/channel.json
+   ```
+1. Now, go again to the menu `Preferences -> Package Control`
+1. This time type `Package Control Install Package` on the opened quick panel and press <kbd>Enter</kbd>
+1. Then, search for `Emmet` and press <kbd>Enter</kbd>
 
-Manually:
+See also:
+1. [ITE - Integrated Toolset Environment](https://github.com/evandrocoan/ITE)
+1. [Package control docs](https://packagecontrol.io/docs/usage) for details.
 
-1. Clone or [download](https://github.com/sergeche/emmet-sublime/archive/master.zip) git repo into your packages folder (in ST, find Browse Packages... menu item to open this folder)
-2. Restart ST editor (if required)
 
 --------------
 
@@ -76,14 +86,14 @@ Use a comma-separated list of action names which default keyboard shortcuts shou
 You should refer `Default (Your-OS-Name).sublime-keymap` file to get action ids (look for `args/action` key).
 
 To disable all default shortcuts, set value to `all`:
-    
+
     "disabled_keymap_actions": "all"
 
 Not that if you disabled any action like so and you’re create your own keyboard shortcut, you **should not** use `emmet_action_enabled.ACTION_NAME` context since this is the key that disables action.
 
 ## How to expand abbreviations with Tab in other syntaxes
 
-Emmet expands abbreviations in limited syntaxes only: HTML, CSS, LESS, SCSS, Stylus and PostCSS. The reason to restrict Tab handler to a limited syntax list is because it breaks native Sublime Text snippets. 
+Emmet expands abbreviations in limited syntaxes only: HTML, CSS, LESS, SCSS, Stylus and PostCSS. The reason to restrict Tab handler to a limited syntax list is because it breaks native Sublime Text snippets.
 
 If you want to abbreviation with Tab in other syntaxes (for example, JSX, HAML etc.) you have to tweak your [keyboard shorcuts settings](http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/key_bindings.html): add `expand_abbreviation_by_tab` command for `tab` key for required syntax *scope selectors*. To get current syntax scope selector, press <kbd>⇧⌃P</kbd> (OSX) or <kbd>Ctrl+Alt+Shift+P</kbd>, it will be displayed in editor status bar.
 
@@ -91,47 +101,47 @@ Go to `Preferences` > `Key Bindings — User` and insert the following JSON snip
 
 ```js
 {
-  "keys": ["tab"], 
-  "command": "expand_abbreviation_by_tab", 
+  "keys": ["tab"],
+  "command": "expand_abbreviation_by_tab",
 
-  // put comma-separated syntax selectors for which 
-  // you want to expandEmmet abbreviations into "operand" key 
+  // put comma-separated syntax selectors for which
+  // you want to expandEmmet abbreviations into "operand" key
   // instead of SCOPE_SELECTOR.
   // Examples: source.js, text.html - source
   "context": [
     {
-      "operand": "SCOPE_SELECTOR", 
-      "operator": "equal", 
-      "match_all": true, 
+      "operand": "SCOPE_SELECTOR",
+      "operator": "equal",
+      "match_all": true,
       "key": "selector"
-    }, 
+    },
 
     // run only if there's no selected text
     {
-      "match_all": true, 
+      "match_all": true,
       "key": "selection_empty"
     },
 
     // don't work if there are active tabstops
     {
-      "operator": "equal", 
-      "operand": false, 
-      "match_all": true, 
+      "operator": "equal",
+      "operand": false,
+      "match_all": true,
       "key": "has_next_field"
-    }, 
+    },
 
     // don't work if completion popup is visible and you
     // want to insert completion with Tab. If you want to
-    // expand Emmet with Tab even if popup is visible -- 
+    // expand Emmet with Tab even if popup is visible --
     // remove this section
     {
-      "operand": false, 
-      "operator": "equal", 
-      "match_all": true, 
+      "operand": false,
+      "operator": "equal",
+      "match_all": true,
       "key": "auto_complete_visible"
-    }, 
+    },
     {
-      "match_all": true, 
+      "match_all": true,
       "key": "is_abbreviation"
     }
   ]
@@ -150,7 +160,7 @@ By default, Tab handler works in a limited _syntax scopes_: HTML, XML, HAML, CSS
 
 To fine-tune Tab key handler, you can use the following settings in user’s `Emmet.sublime-settings` file:
 
-* `disable_tab_abbreviations_for_scopes` — a comma-separated list of syntax scopes where Tab key handler should be disabled. For example, if you want disable handler inside strings of programming languages and HAML syntax, your setting will look like this: 
+* `disable_tab_abbreviations_for_scopes` — a comma-separated list of syntax scopes where Tab key handler should be disabled. For example, if you want disable handler inside strings of programming languages and HAML syntax, your setting will look like this:
 
 ```json
 "disable_tab_abbreviations_for_scopes": "text.haml, string"
